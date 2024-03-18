@@ -107,4 +107,34 @@ public class Products {
         else assert false;
     }
 
+    public void clickViewProduct(){
+        WebElement viewProduct = driver.findElement(By.xpath("/html/body/section[2]/div/div/div[2]/div/div[2]/div/div[2]/ul/li/a"));
+        viewProduct.click();
+        }
+
+    public void verifyYourReviewIsVisible(){
+        WebElement yourReviewIsVisible = driver.findElement(By.xpath("/html/body/section/div/div/div[2]/div[3]/div[1]/ul/li/a"));
+                yourReviewIsVisible.click();
+    }
+
+    public void reviewContent(String name, String email, String review){
+        WebElement name_locator = driver.findElement(By.id("name"));
+        WebElement email_locator = driver.findElement(By.id("email"));
+        WebElement review_locator = driver.findElement(By.id("review"));
+        name_locator.sendKeys(name);
+        email_locator.sendKeys(email);
+        review_locator.sendKeys((review));
+    }
+
+    public void clickSubmit(){
+        WebElement clickSubmit = driver.findElement(By.id("button-review"));
+        clickSubmit.click();
+    }
+
+    public void alert_succes_is_displayed(){
+        WebElement succes_alert = driver.findElement(By.xpath("//*[@id=\"review-section\"]/div/div/span"));
+        succes_alert.isDisplayed();
+    }
+
+
 }

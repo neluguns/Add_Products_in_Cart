@@ -88,7 +88,23 @@ public class Test extends BaseTest {
         Thread.sleep(3000);
     }
 
+    @org.testng.annotations.Test
+    public void verifyReviewIsSent() throws InterruptedException {
+        Products products = new Products(driver);
+        products.clickProductButton();
+        products.verifyPageProducts();
+        products.clickViewProduct();
+        Thread.sleep(2000);
+        products.verifyYourReviewIsVisible();
+        products.reviewContent("Ioan Arcalean","xxx@yahoo.com","Cool stuff");
+        Thread.sleep(2000);
+        products.clickSubmit();
+        Thread.sleep(2000);
+        products.alert_succes_is_displayed();
+        Thread.sleep(3000);
+
+    }
+
 }
 
 
-//Un comentariu nou 
