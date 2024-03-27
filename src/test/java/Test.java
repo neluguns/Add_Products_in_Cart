@@ -102,7 +102,35 @@ public class Test extends BaseTest {
         Thread.sleep(2000);
         products.alert_succes_is_displayed();
         Thread.sleep(3000);
+    }
 
+    @org.testng.annotations.Test
+    public void RegisterAndDeleteAccount() throws InterruptedException {
+        HomePage homePage  = new HomePage(driver);
+        System.out.println(homePage.verifyHomePage());
+        SignUpLogin signUpLogin = new SignUpLogin(driver);
+        signUpLogin.clickSignUpSignIn();
+        signUpLogin.signUpText();
+        signUpLogin.signUpBasicInfo("Ioan", "neluguns1@yahoo.ro");
+        signUpLogin.clickSignUp();
+        signUpLogin.verifySignUpPageIsPresent();
+        signUpLogin.completeInfoSignUp(0,"Ioan", "varza01", 7, 3,"1985");
+        signUpLogin.selectCheckBoxes();
+        signUpLogin.completeFirstName("Ioan");
+        signUpLogin.completeLastName("Arcalean");
+        signUpLogin.completeCompany("Testing SRL");
+        signUpLogin.completeAdress("Rodna, Bistrita, Romania");
+        signUpLogin.selectCountry("Canada");
+        signUpLogin.completeCityandState("Bistrita", "Romania");
+        signUpLogin.phoneNumber("0755404904");
+        signUpLogin.completeZipCode("427245");
+        signUpLogin.clickCreateAccount();
+        signUpLogin.verifyAccountCreated();
+        signUpLogin.clickContinuebutton();
+        signUpLogin.verifyLoggedUser();
+        signUpLogin.deleteAccount();
+        signUpLogin.clickContinuebutton();
+        Thread.sleep(5000);
     }
 
 }
